@@ -11,10 +11,13 @@
     <form method="post" action="/show_info" enctype=multipart/form-data>
 
         <input type="file" name="file_upload">
-
         <button id="submit" type="submit"> Upload </button>
 
     </form>
+
+    {% if link_img!='' %}
+        <img src='static/image/{{ link_img }}' alt="user_image" width="480" height="360" >
+    {% endif %}
 
     {% if show_more == 'yes' %}
         <table border="1px:black">
