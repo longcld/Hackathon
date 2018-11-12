@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> <3 Yêu Hà Nội <3 </title>
+</head>
+
+<body width = "device-width" >
+
+    <form method="post" action="/show_info" enctype=multipart/form-data align="center">
+
+        <input type="file" name="file_upload">
+        <button id="submit" type="submit"> Upload </button>
+
+    </form>
+    <br>
+    {% if show_more == 'yes' %}
+
+        <div align="center" >
+            <img src='static/image/{{ link_img }}' alt="user_image" width="240" height="180" >
+        </div>
+        <br>
+        <div>
+            <table align = "center" border="1px:black">
+                <tr>
+                    <th>Tên</th>
+                    <th>Mã SV</th>
+                    <th>Ngày sinh</th>
+                </tr>
+                <tr>
+                    <th>{{ show_info[0] }}</th>
+                    <th>{{ show_info[1] }}</th>
+                    <th>{{ show_info[2] }}</th>
+                </tr>
+            </table>
+        </div>
+
+    {% endif %}
+
+</body>
+
+</html>
