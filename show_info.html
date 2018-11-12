@@ -8,7 +8,7 @@
 
 <body>
 
-    <form method="post" action="/show_info" >
+    <form method="post" action="/show_info" enctype=multipart/form-data>
 
         <input type="file" name="file_upload">
 
@@ -17,13 +17,15 @@
     </form>
 
     {% if show_more == 'yes' %}
-        <table>
+        <table border="1px:black">
         {%  for x in show_info %}
-        <td>
-            {{ x }}
-        </td>
+
+            <td>
+                {{ x }}
+            </td>
         {% endfor %}
         </table>
+
     {% endif %}
 
 </body>
