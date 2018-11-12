@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> show info </title>
+</head>
+
+<body>
+
+    <form method="post" action="/show_info" >
+
+        <input type="file" name="file_upload">
+
+        <button id="submit" type="submit"> Upload </button>
+
+    </form>
+
+    {% if show_more == 'yes' %}
+        <table>
+        {%  for x in show_info %}
+        <td>
+            {{ x }}
+        </td>
+        {% endfor %}
+        </table>
+    {% endif %}
+
+</body>
+
+</html>
