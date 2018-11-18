@@ -37,7 +37,7 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
-    return render_template('main.html')
+    return render_template('home.html')
 
 
 @app.route('/upload', methods=['GET', 'POST'])
