@@ -36,6 +36,11 @@ def allowed_file(filename):
 
 
 @app.route('/', methods=['GET', 'POST'])
+def main():
+    return render_template('main.html')
+
+
+@app.route('/home', methods=['GET', 'POST'])
 def home():
     return render_template('home.html')
 
@@ -47,11 +52,9 @@ def upload():
         global img, name
         file_name = 'user_img.jpg'  # name of user img will be saved in sever
         img = '{}{}'.format(img, file_name)
-
-        print("NOOOOOOOOOOOOOO")    # test xem co luu anh moi upload len khong
-
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], file_name)) # save user img to server
         name = file_name
+
         return redirect(url_for('result'))
 
 
@@ -62,7 +65,6 @@ def result():
     result = total(link1)    # ket qua tra ve
     link2 = 'static/image_detect/Photo.jpg'
     link3 = 'static/image_detect/Image_detected.jpg'
-    #print("YYYYYYYYYYYYYYYYYYYYYY") # test xem anh co chay toi result.html khong
 
     return render_template('result.html', show_info=result, img1=link1, img2=link2, img3=link3)
 
