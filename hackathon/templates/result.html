@@ -1,6 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    .mybutton{
+        position: absolute;
+        left: 55%;
+    }
+    .myinput{
+        position: absolute;
+        left: 35%;
+    }
+    table {
+        border-collapse: collapse;
+        width: 60%;
+    }
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
 
+    tr:nth-child(even){background-color: #f2f2f2}
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    body{
+        background-image: url("/static/background/background.jpeg");
+        background-repeat: no-repeat;
+    }
+</style>
+<script>
+
+</script>
 <head>
     <meta charset="UTF-8">
     <title> <3 Yêu Hà Nội <3 </title>
@@ -10,12 +41,14 @@
 
    <form method="post" action="/upload" enctype=multipart/form-data align="center">
 
-       <input type="file" name="img_upload">
+       <input class="myinput" type="file" name="img_upload">
 
-       <button id="submit" type="submit"> Detect </button>
+       <button class="mybutton" id="submit" type="submit"> Detect </button>
 
    </form>
 
+    <br>
+    <br>
     <br>
 
     <div align="center" width="device-width" height="device-height">
@@ -38,9 +71,9 @@
                 <th> D.O.B </th>
             </tr>
             <tr>
-                <th>{{ show_info[0] }}</th>
-                <th>{{ show_info[1] }}</th>
-                <th>{{ show_info[2] }}</th>
+                <td>{{ show_info[0] }}</td>
+                <td>{{ show_info[1] }}</td>
+                <td>{{ show_info[2] }}</td>
             </tr>
         </table>
     </div>

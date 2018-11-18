@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+    .mybutton{
+        position: absolute;
+        left: 50%;
+        bottom: 30%;
+    }
+    .myinput{
+        position: absolute;
+        left: 30%;
+        bottom: 30%;
+    }
+    #output{
+        max-width: 420px;
+        left: 28%;
+        top: 16%;
+        position: absolute;
+    }
+    body{
+        background-image: url("/static/background/background.jpeg");
+        background-repeat: no-repeat;
+    }
+</style>
+
+<script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
 <head>
     <meta charset="UTF-8">
     <title> Home </title>
@@ -10,9 +43,9 @@
 
    <form method="post" action="/upload" enctype=multipart/form-data align="center">
 
-       <input type="file" name="img_upload">
-
-       <button id="submit" type="submit"> Detect </button>
+       <input class="myinput" type="file" onchange="loadFile(event)" name="img_upload">
+       <img id="output"/>
+       <button class="mybutton" id="submit" type="submit"> Detect </button>
 
    </form>
 
