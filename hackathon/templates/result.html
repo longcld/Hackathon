@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    .mybutton{
+        position: absolute;
+        left: 55%;
+    }
+    .myinput{
+        position: absolute;
+        left: 35%;
+    }
+    table {
+        border-collapse: collapse;
+        width: 60%;
+    }
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+    tr:nth-child(even){background-color: #f2f2f2}
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    body{
+        background-image: url("/static/background/background.png");
+        background-repeat: no-repeat;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title> <3 Yêu Hà Nội <3 </title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<body width = "device-width" >
+    <br>
+    <form method="post" action="/" align="center">
+        <button class="btn btn-success" id="submit" type="submit">Back to home</button>
+    </form>
+    <br>
+    <br>
+    <div align="center" width="device-width" height="device-height">
+
+        {% if img1!='' %} <img src={{ img1 }} width="30%-device-width" height="30%-device-height"> {% endif %}
+
+        <img src={{ img2 }} width="20%-device-width" height="20%-device-height">
+
+        {% if img3!='' %} <img src={{ img3 }} width="30%-device-width" height="30%-device-height"> {% endif %}
+
+    </div>
+
+    <br>
+
+    <div>
+        <table align = "center" border="1px:black">
+            <tr>
+                <th> Name </th>
+                <th> ID </th>
+                <th> D.O.B </th>
+            </tr>
+            <tr>
+                <td>{{ show_info[0] }}</td>
+                <td>{{ show_info[1] }}</td>
+                <td>{{ show_info[2] }}</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

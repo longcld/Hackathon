@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body{
+            background-image: url("/static/background/background.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .mybutton{
+            position: absolute;
+            left: 50%;
+            bottom: 30%;
+        }
+        .myinput{
+            position: absolute;
+            left: 30%;
+            bottom: 30%;
+        }
+        #output{
+            width: 600px;
+            height: 450px;
+        }
+    </style>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<body>
+
+   <div class="container">
+
+       <div class="row mb-5" style="margin-top:10%;"></div>
+
+       <div class="row justify-content-center">
+           <img id="output" class="img-thumbnail"/>
+       </div>
+
+       <div class="row justify-content-center">
+
+           <div class="col-auto">
+
+               <form method="post" action="/sign_in" enctype=multipart/form-data align="center">
+                    <input  name="search" placeholder="Nhập mã sinh viên ..." autocomplete="off">
+                    <button class="btn btn-success" id="submit" type="submit"> Sign in </button>
+               </form>
+
+               {% if check=="No" %}
+                   <br>
+                   <p style="color: red; font-size: 20px"> Mời bạn nhập lại MSV hoặc đăng ký</p>
+               {% endif %}
+
+               <br>
+               <form method="post" action="/sign_up" enctype=multipart/form-data align="center">
+                   <input type="file" onchange="loadFile(event)" name="img_upload">
+                   <button class="btn btn-success" id="sign_up" type="submit"> Sign up </button>
+               </form>
+
+           </div>
+
+       </div>
+   </div>
+
+<script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
+
+</body>
+
+</html>
